@@ -32,15 +32,25 @@ namespace Materials_List_Estimation
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.flooringBtn = new System.Windows.Forms.CheckBox();
             this.wallsBtn = new System.Windows.Forms.CheckBox();
-            this.roofBtn = new System.Windows.Forms.CheckBox();
             this.openingsBtn = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.categoryList = new System.Windows.Forms.ComboBox();
+            this.roofBtn = new System.Windows.Forms.CheckBox();
+            this.otherItemsBtn = new System.Windows.Forms.CheckBox();
+
             this.saveBtn = new System.Windows.Forms.Button();
             this.exportBtn = new System.Windows.Forms.Button();
             this.newBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
+
+            this.listCategory = new System.Windows.Forms.ListBox();
+
+            this.groupBoxFlooring = new System.Windows.Forms.GroupBox();
+            this.groupBoxWalls = new System.Windows.Forms.GroupBox();
+            this.groupBoxOpenings = new System.Windows.Forms.GroupBox();
+            this.groupBoxRoof = new System.Windows.Forms.GroupBox();
+            this.groupBoxOtherItems = new System.Windows.Forms.GroupBox();
+
             this.SuspendLayout();
+
             // 
             // flooringBtn
             // 
@@ -62,16 +72,6 @@ namespace Materials_List_Estimation
             this.wallsBtn.Text = "Walls";
             this.wallsBtn.UseVisualStyleBackColor = true;
             // 
-            // roofBtn
-            // 
-            this.roofBtn.AutoSize = true;
-            this.roofBtn.Location = new System.Drawing.Point(38, 181);
-            this.roofBtn.Name = "roofBtn";
-            this.roofBtn.Size = new System.Drawing.Size(49, 17);
-            this.roofBtn.TabIndex = 3;
-            this.roofBtn.Text = "Roof";
-            this.roofBtn.UseVisualStyleBackColor = true;
-            // 
             // openingsBtn
             // 
             this.openingsBtn.AutoSize = true;
@@ -82,23 +82,26 @@ namespace Materials_List_Estimation
             this.openingsBtn.Text = "Openings";
             this.openingsBtn.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // roofBtn
             // 
-            this.groupBox1.Location = new System.Drawing.Point(159, 87);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(399, 343);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.roofBtn.AutoSize = true;
+            this.roofBtn.Location = new System.Drawing.Point(38, 181);
+            this.roofBtn.Name = "roofBtn";
+            this.roofBtn.Size = new System.Drawing.Size(49, 17);
+            this.roofBtn.TabIndex = 3;
+            this.roofBtn.Text = "Roof";
+            this.roofBtn.UseVisualStyleBackColor = true;
             // 
-            // categoryList
+            // otherItemsBtn
             // 
-            this.categoryList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.categoryList.FormattingEnabled = true;
-            this.categoryList.Location = new System.Drawing.Point(159, 60);
-            this.categoryList.Name = "categoryList";
-            this.categoryList.Size = new System.Drawing.Size(399, 21);
-            this.categoryList.TabIndex = 5;
+            this.otherItemsBtn.AutoSize = true;
+            this.otherItemsBtn.Location = new System.Drawing.Point(38, 204);
+            this.otherItemsBtn.Name = "otherItemsBtn";
+            this.otherItemsBtn.Size = new System.Drawing.Size(80, 17);
+            this.otherItemsBtn.TabIndex = 12;
+            this.otherItemsBtn.Text = "Other Items";
+            this.otherItemsBtn.UseVisualStyleBackColor = true;
+
             // 
             // saveBtn
             // 
@@ -136,24 +139,93 @@ namespace Materials_List_Estimation
             this.exitBtn.Text = "Exit";
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+
+            // 
+            // listCategory
+            // 
+            this.listCategory.FormattingEnabled = true;
+            this.listCategory.Items.AddRange(new object[] {
+            "Flooring",
+            "Walls",
+            "Openings",
+            "Roof",
+            "Other Items"});
+            this.listCategory.Location = new System.Drawing.Point(159, 37);
+            this.listCategory.Name = "listCategory";
+            this.listCategory.Size = new System.Drawing.Size(399, 69);
+            this.listCategory.TabIndex = 10;
+            this.listCategory.SelectedIndexChanged += new System.EventHandler(this.listCategory_SelectedIndexChanged);
+
+            // 
+            // groupBoxFlooring
+            // 
+            this.groupBoxFlooring.Location = new System.Drawing.Point(159, 112);
+            this.groupBoxFlooring.Name = "groupBoxFlooring";
+            this.groupBoxFlooring.Size = new System.Drawing.Size(399, 69);
+            this.groupBoxFlooring.TabIndex = 4;
+            this.groupBoxFlooring.TabStop = false;
+            this.groupBoxFlooring.Text = "Estimating List - Flooring";
+            // 
+            // groupBoxWalls
+            // 
+            this.groupBoxWalls.Location = new System.Drawing.Point(159, 186);
+            this.groupBoxWalls.Name = "groupBoxWalls";
+            this.groupBoxWalls.Size = new System.Drawing.Size(399, 63);
+            this.groupBoxWalls.TabIndex = 5;
+            this.groupBoxWalls.TabStop = false;
+            this.groupBoxWalls.Text = "Estimating List - Walls";
+            // 
+            // groupBoxOpenings
+            // 
+            this.groupBoxOpenings.Location = new System.Drawing.Point(159, 255);
+            this.groupBoxOpenings.Name = "groupBoxOpenings";
+            this.groupBoxOpenings.Size = new System.Drawing.Size(399, 64);
+            this.groupBoxOpenings.TabIndex = 6;
+            this.groupBoxOpenings.TabStop = false;
+            this.groupBoxOpenings.Text = "Estimating List - Openings";
+            // 
+            // groupBoxRoof
+            // 
+            this.groupBoxRoof.Location = new System.Drawing.Point(159, 325);
+            this.groupBoxRoof.Name = "groupBoxRoof";
+            this.groupBoxRoof.Size = new System.Drawing.Size(399, 67);
+            this.groupBoxRoof.TabIndex = 6;
+            this.groupBoxRoof.TabStop = false;
+            this.groupBoxRoof.Text = "Estimating List - Roof";
+            // 
+            // groupBoxOtherItems
+            // 
+            this.groupBoxOtherItems.Location = new System.Drawing.Point(159, 398);
+            this.groupBoxOtherItems.Name = "groupBoxOtherItems";
+            this.groupBoxOtherItems.Size = new System.Drawing.Size(399, 68);
+            this.groupBoxOtherItems.TabIndex = 11;
+            this.groupBoxOtherItems.TabStop = false;
+            this.groupBoxOtherItems.Text = "Estimating List - Other Items";
+
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 552);
-            this.Controls.Add(this.exitBtn);
-            this.Controls.Add(this.newBtn);
-            this.Controls.Add(this.exportBtn);
-            this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.categoryList);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.roofBtn);
-            this.Controls.Add(this.openingsBtn);
-            this.Controls.Add(this.wallsBtn);
+            this.ClientSize = new System.Drawing.Size(1199, 722);
+            this.Controls.Add(this.otherItemsBtn);
             this.Controls.Add(this.flooringBtn);
+            this.Controls.Add(this.wallsBtn);
+            this.Controls.Add(this.openingsBtn);
+            this.Controls.Add(this.roofBtn);
+            this.Controls.Add(this.saveBtn);
+            this.Controls.Add(this.exportBtn);
+            this.Controls.Add(this.newBtn);
+            this.Controls.Add(this.exitBtn);
+            this.Controls.Add(this.groupBoxFlooring);
+            this.Controls.Add(this.groupBoxWalls);
+            this.Controls.Add(this.groupBoxOpenings);
+            this.Controls.Add(this.groupBoxRoof);
+            this.Controls.Add(this.groupBoxOtherItems);
+            this.Controls.Add(this.listCategory);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "mainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Material Estimator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -165,14 +237,21 @@ namespace Materials_List_Estimation
 
         private System.Windows.Forms.CheckBox flooringBtn;
         private System.Windows.Forms.CheckBox wallsBtn;
-        private System.Windows.Forms.CheckBox roofBtn;
         private System.Windows.Forms.CheckBox openingsBtn;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox categoryList;
+        private System.Windows.Forms.CheckBox roofBtn;
+        private System.Windows.Forms.CheckBox otherItemsBtn;
+
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button exportBtn;
         private System.Windows.Forms.Button newBtn;
         private System.Windows.Forms.Button exitBtn;
+
+        private System.Windows.Forms.ListBox listCategory;
+        private System.Windows.Forms.GroupBox groupBoxFlooring;
+        private System.Windows.Forms.GroupBox groupBoxWalls;
+        private System.Windows.Forms.GroupBox groupBoxOpenings;
+        private System.Windows.Forms.GroupBox groupBoxRoof;
+        private System.Windows.Forms.GroupBox groupBoxOtherItems;
     }
 }
 

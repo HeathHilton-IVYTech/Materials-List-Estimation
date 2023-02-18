@@ -46,7 +46,7 @@ namespace Materials_List_Estimation
         private void listCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             String text = listCategory.SelectedItems[0].ToString();
-            //Console.WriteLine(text);
+            Console.WriteLine(text);
 
             switch (text)
             {

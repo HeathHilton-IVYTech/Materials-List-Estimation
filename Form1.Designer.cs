@@ -219,7 +219,7 @@ namespace Materials_List_Estimation
             this.groupBoxGeneral.Controls.Add(this.textBox1);
             this.groupBoxGeneral.Controls.Add(this.label1);
             this.groupBoxGeneral.Controls.Add(this.txtProjectName);
-            this.groupBoxGeneral.Location = new System.Drawing.Point(582, 50);
+            this.groupBoxGeneral.Location = new System.Drawing.Point(602, 50);
             this.groupBoxGeneral.Name = "groupBoxGeneral";
             this.groupBoxGeneral.Size = new System.Drawing.Size(399, 354);
             this.groupBoxGeneral.TabIndex = 5;

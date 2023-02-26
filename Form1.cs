@@ -36,6 +36,8 @@ namespace Materials_List_Estimation
             groupBoxRoof.Location = new Point(170, 68);
             groupBoxOtherItems.Location = new Point(170, 68);
 
+            listCategory.SelectedItem = "General";
+                
         }
 
         private void exitBtn_Click(object sender, EventArgs e)

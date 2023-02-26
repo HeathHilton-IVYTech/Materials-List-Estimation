@@ -22,19 +22,19 @@ namespace Materials_List_Estimation
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            groupBoxGeneral.Size = new Size(399, 318);
+            groupBoxGeneral.Size = new Size(600, 320);
             groupBoxFlooring.Size = new Size(0, 0);
             groupBoxWalls.Size = new Size(0, 0);
             groupBoxOpenings.Size = new Size(0, 0);
             groupBoxRoof.Size = new Size(0, 0);
             groupBoxOtherItems.Size = new Size(0, 0);
 
-            groupBoxGeneral.Location = new Point(159, 112);
-            groupBoxFlooring.Location = new Point(159, 112);
-            groupBoxWalls.Location = new Point(159, 112);
-            groupBoxOpenings.Location = new Point(159, 112);
-            groupBoxRoof.Location = new Point(159, 112);
-            groupBoxOtherItems.Location = new Point(159, 112);
+            groupBoxGeneral.Location = new Point(170, 68);
+            groupBoxFlooring.Location = new Point(170, 68);
+            groupBoxWalls.Location = new Point(170, 68);
+            groupBoxOpenings.Location = new Point(170, 68);
+            groupBoxRoof.Location = new Point(170, 68);
+            groupBoxOtherItems.Location = new Point(170, 68);
 
         }
 
@@ -52,7 +52,7 @@ namespace Materials_List_Estimation
             {
                 case "General":
                     Console.WriteLine("General");
-                    groupBoxGeneral.Size = new Size(399, 318);
+                    groupBoxGeneral.Size = new Size(600, 320);
                     groupBoxFlooring.Size = new Size(0, 0);
                     groupBoxWalls.Size = new Size(0, 0);
                     groupBoxOpenings.Size = new Size(0, 0);
@@ -62,7 +62,7 @@ namespace Materials_List_Estimation
                 case "Flooring":
                     Console.WriteLine("Flooring");
                     groupBoxGeneral.Size = new Size(0, 0);
-                    groupBoxFlooring.Size = new Size(399, 318);
+                    groupBoxFlooring.Size = new Size(600, 320);
                     groupBoxWalls.Size = new Size(0, 0);
                     groupBoxOpenings.Size = new Size(0, 0);
                     groupBoxRoof.Size = new Size(0, 0);
@@ -72,7 +72,7 @@ namespace Materials_List_Estimation
                     Console.WriteLine("Walls");
                     groupBoxGeneral.Size = new Size(0, 0);
                     groupBoxFlooring.Size = new Size(0, 0);
-                    groupBoxWalls.Size = new Size(399, 318);
+                    groupBoxWalls.Size = new Size(600, 320);
                     groupBoxOpenings.Size = new Size(0, 0);
                     groupBoxRoof.Size = new Size(0, 0);
                     groupBoxOtherItems.Size = new Size(0, 0);
@@ -82,7 +82,7 @@ namespace Materials_List_Estimation
                     groupBoxGeneral.Size = new Size(0, 0);
                     groupBoxFlooring.Size = new Size(0, 0);
                     groupBoxWalls.Size = new Size(0, 0);
-                    groupBoxOpenings.Size = new Size(399, 318);
+                    groupBoxOpenings.Size = new Size(600, 320);
                     groupBoxRoof.Size = new Size(0, 0);
                     groupBoxOtherItems.Size = new Size(0, 0);
                     break;
@@ -92,7 +92,7 @@ namespace Materials_List_Estimation
                     groupBoxFlooring.Size = new Size(0, 0);
                     groupBoxWalls.Size = new Size(0, 0);
                     groupBoxOpenings.Size = new Size(0, 0);
-                    groupBoxRoof.Size = new Size(399, 318);
+                    groupBoxRoof.Size = new Size(600, 320);
                     groupBoxOtherItems.Size = new Size(0, 0);
                     break;
                 case "Other Items":
@@ -102,7 +102,7 @@ namespace Materials_List_Estimation
                     groupBoxWalls.Size = new Size(0, 0);
                     groupBoxOpenings.Size = new Size(0, 0);
                     groupBoxRoof.Size = new Size(0, 0);
-                    groupBoxOtherItems.Size = new Size(399, 318);
+                    groupBoxOtherItems.Size = new Size(600, 320);
                     break;
 
             }
@@ -193,6 +193,5 @@ namespace Materials_List_Estimation
                 listCategory.Items.Remove("Other Items");
             }
         }
-
     }
 }

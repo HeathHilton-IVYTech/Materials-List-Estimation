@@ -367,7 +367,17 @@ namespace Materials_List_Estimation
             this.label1 = new System.Windows.Forms.Label();
             this.txtProjectName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblEstimateTotal = new System.Windows.Forms.Label();
+            this.lblOtherTotal = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblRoofTotal = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblOpeningsTotal = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblWallsTotal = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblFlooringTotal = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBoxFlooring.SuspendLayout();
             this.groupBoxWalls.SuspendLayout();
             this.groupBoxOpenings.SuspendLayout();
@@ -439,6 +449,7 @@ namespace Materials_List_Estimation
             this.exportBtn.TabIndex = 7;
             this.exportBtn.Text = "Export";
             this.exportBtn.UseVisualStyleBackColor = true;
+            this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
             // 
             // newBtn
             // 
@@ -467,6 +478,7 @@ namespace Materials_List_Estimation
             this.updateBtn.TabIndex = 13;
             this.updateBtn.Text = "Update Estimate";
             this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // listCategory
             // 
@@ -481,6 +493,8 @@ namespace Materials_List_Estimation
             // 
             // groupBoxFlooring
             // 
+            this.groupBoxFlooring.Controls.Add(this.lblFlooringTotal);
+            this.groupBoxFlooring.Controls.Add(this.label13);
             this.groupBoxFlooring.Controls.Add(this.lblFlooringDesc4);
             this.groupBoxFlooring.Controls.Add(this.lblFlooringDesc3);
             this.groupBoxFlooring.Controls.Add(this.lblFlooringDesc2);
@@ -521,7 +535,7 @@ namespace Materials_List_Estimation
             this.groupBoxFlooring.Controls.Add(this.lblFlooringItem1);
             this.groupBoxFlooring.Location = new System.Drawing.Point(170, 180);
             this.groupBoxFlooring.Name = "groupBoxFlooring";
-            this.groupBoxFlooring.Size = new System.Drawing.Size(600, 39);
+            this.groupBoxFlooring.Size = new System.Drawing.Size(600, 47);
             this.groupBoxFlooring.TabIndex = 4;
             this.groupBoxFlooring.TabStop = false;
             this.groupBoxFlooring.Text = "Estimating List - Flooring";
@@ -846,6 +860,8 @@ namespace Materials_List_Estimation
             // 
             // groupBoxWalls
             // 
+            this.groupBoxWalls.Controls.Add(this.lblWallsTotal);
+            this.groupBoxWalls.Controls.Add(this.label12);
             this.groupBoxWalls.Controls.Add(this.lblWallsDesc11);
             this.groupBoxWalls.Controls.Add(this.lblWallsDesc10);
             this.groupBoxWalls.Controls.Add(this.lblWallsDesc9);
@@ -942,7 +958,7 @@ namespace Materials_List_Estimation
             this.groupBoxWalls.Controls.Add(this.lblWallsItem1);
             this.groupBoxWalls.Location = new System.Drawing.Point(170, 218);
             this.groupBoxWalls.Name = "groupBoxWalls";
-            this.groupBoxWalls.Size = new System.Drawing.Size(600, 39);
+            this.groupBoxWalls.Size = new System.Drawing.Size(600, 43);
             this.groupBoxWalls.TabIndex = 5;
             this.groupBoxWalls.TabStop = false;
             this.groupBoxWalls.Text = "Estimating List - Walls";
@@ -1729,6 +1745,8 @@ namespace Materials_List_Estimation
             // 
             // groupBoxOpenings
             // 
+            this.groupBoxOpenings.Controls.Add(this.lblOpeningsTotal);
+            this.groupBoxOpenings.Controls.Add(this.label11);
             this.groupBoxOpenings.Controls.Add(this.lblOpeningsDesc2);
             this.groupBoxOpenings.Controls.Add(this.lblOpeningsDesc1);
             this.groupBoxOpenings.Controls.Add(this.label109);
@@ -1753,7 +1771,7 @@ namespace Materials_List_Estimation
             this.groupBoxOpenings.Controls.Add(this.lblOpeningsItem1);
             this.groupBoxOpenings.Location = new System.Drawing.Point(170, 257);
             this.groupBoxOpenings.Name = "groupBoxOpenings";
-            this.groupBoxOpenings.Size = new System.Drawing.Size(600, 39);
+            this.groupBoxOpenings.Size = new System.Drawing.Size(600, 42);
             this.groupBoxOpenings.TabIndex = 6;
             this.groupBoxOpenings.TabStop = false;
             this.groupBoxOpenings.Text = "Estimating List - Openings";
@@ -1946,6 +1964,8 @@ namespace Materials_List_Estimation
             // 
             // groupBoxRoof
             // 
+            this.groupBoxRoof.Controls.Add(this.lblRoofTotal);
+            this.groupBoxRoof.Controls.Add(this.label9);
             this.groupBoxRoof.Controls.Add(this.lblRoofDesc8);
             this.groupBoxRoof.Controls.Add(this.lblRoofDesc7);
             this.groupBoxRoof.Controls.Add(this.lblRoofDesc6);
@@ -2018,7 +2038,7 @@ namespace Materials_List_Estimation
             this.groupBoxRoof.Controls.Add(this.lblRoofItem1);
             this.groupBoxRoof.Location = new System.Drawing.Point(170, 297);
             this.groupBoxRoof.Name = "groupBoxRoof";
-            this.groupBoxRoof.Size = new System.Drawing.Size(600, 39);
+            this.groupBoxRoof.Size = new System.Drawing.Size(600, 43);
             this.groupBoxRoof.TabIndex = 6;
             this.groupBoxRoof.TabStop = false;
             this.groupBoxRoof.Text = "Estimating List - Roof";
@@ -2607,6 +2627,8 @@ namespace Materials_List_Estimation
             // 
             // groupBoxOtherItems
             // 
+            this.groupBoxOtherItems.Controls.Add(this.lblOtherTotal);
+            this.groupBoxOtherItems.Controls.Add(this.label8);
             this.groupBoxOtherItems.Controls.Add(this.lblOtherItem10);
             this.groupBoxOtherItems.Controls.Add(this.lblOtherItem9);
             this.groupBoxOtherItems.Controls.Add(this.lblOtherItem8);
@@ -2693,9 +2715,9 @@ namespace Materials_List_Estimation
             this.groupBoxOtherItems.Controls.Add(this.label260);
             this.groupBoxOtherItems.Controls.Add(this.label261);
             this.groupBoxOtherItems.Controls.Add(this.label262);
-            this.groupBoxOtherItems.Location = new System.Drawing.Point(170, 339);
+            this.groupBoxOtherItems.Location = new System.Drawing.Point(170, 345);
             this.groupBoxOtherItems.Name = "groupBoxOtherItems";
-            this.groupBoxOtherItems.Size = new System.Drawing.Size(603, 39);
+            this.groupBoxOtherItems.Size = new System.Drawing.Size(603, 41);
             this.groupBoxOtherItems.TabIndex = 11;
             this.groupBoxOtherItems.TabStop = false;
             this.groupBoxOtherItems.Text = "Estimating List - Other Items";
@@ -2961,6 +2983,7 @@ namespace Materials_List_Estimation
             // 
             // lblOtherPrice1
             // 
+            this.lblOtherPrice1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblOtherPrice1.Location = new System.Drawing.Point(480, 41);
             this.lblOtherPrice1.Name = "lblOtherPrice1";
             this.lblOtherPrice1.Size = new System.Drawing.Size(44, 20);
@@ -3378,7 +3401,7 @@ namespace Materials_List_Estimation
             this.groupBoxGeneral.Controls.Add(this.txtProjectName);
             this.groupBoxGeneral.Location = new System.Drawing.Point(170, 68);
             this.groupBoxGeneral.Name = "groupBoxGeneral";
-            this.groupBoxGeneral.Size = new System.Drawing.Size(600, 113);
+            this.groupBoxGeneral.Size = new System.Drawing.Size(600, 106);
             this.groupBoxGeneral.TabIndex = 5;
             this.groupBoxGeneral.TabStop = false;
             this.groupBoxGeneral.Text = "General Info";
@@ -3483,7 +3506,7 @@ namespace Materials_List_Estimation
             // 
             this.textBox2.Location = new System.Drawing.Point(108, 88);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(270, 20);
+            this.textBox2.Size = new System.Drawing.Size(471, 20);
             this.textBox2.TabIndex = 4;
             // 
             // label2
@@ -3498,7 +3521,7 @@ namespace Materials_List_Estimation
             // 
             this.textBox1.Location = new System.Drawing.Point(108, 62);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(270, 20);
+            this.textBox1.Size = new System.Drawing.Size(471, 20);
             this.textBox1.TabIndex = 2;
             // 
             // label1
@@ -3513,7 +3536,7 @@ namespace Materials_List_Estimation
             // 
             this.txtProjectName.Location = new System.Drawing.Point(108, 36);
             this.txtProjectName.Name = "txtProjectName";
-            this.txtProjectName.Size = new System.Drawing.Size(270, 20);
+            this.txtProjectName.Size = new System.Drawing.Size(471, 20);
             this.txtProjectName.TabIndex = 0;
             // 
             // label6
@@ -3525,23 +3548,118 @@ namespace Materials_List_Estimation
             this.label6.Text = "Project Total:        $";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label7
+            // lblEstimateTotal
             // 
-            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label7.Location = new System.Drawing.Point(592, 448);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 23);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "0.00";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblEstimateTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblEstimateTotal.Location = new System.Drawing.Point(592, 448);
+            this.lblEstimateTotal.Name = "lblEstimateTotal";
+            this.lblEstimateTotal.Size = new System.Drawing.Size(88, 23);
+            this.lblEstimateTotal.TabIndex = 14;
+            this.lblEstimateTotal.Text = "0.00";
+            this.lblEstimateTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblOtherTotal
+            // 
+            this.lblOtherTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblOtherTotal.Location = new System.Drawing.Point(478, 287);
+            this.lblOtherTotal.Name = "lblOtherTotal";
+            this.lblOtherTotal.Size = new System.Drawing.Size(88, 23);
+            this.lblOtherTotal.TabIndex = 390;
+            this.lblOtherTotal.Text = "0.00";
+            this.lblOtherTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(380, 287);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 23);
+            this.label8.TabIndex = 389;
+            this.label8.Text = "Page Total:          $";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblRoofTotal
+            // 
+            this.lblRoofTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblRoofTotal.Location = new System.Drawing.Point(478, 287);
+            this.lblRoofTotal.Name = "lblRoofTotal";
+            this.lblRoofTotal.Size = new System.Drawing.Size(88, 23);
+            this.lblRoofTotal.TabIndex = 392;
+            this.lblRoofTotal.Text = "0.00";
+            this.lblRoofTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(380, 287);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(100, 23);
+            this.label9.TabIndex = 391;
+            this.label9.Text = "Page Total:          $";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblOpeningsTotal
+            // 
+            this.lblOpeningsTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblOpeningsTotal.Location = new System.Drawing.Point(478, 287);
+            this.lblOpeningsTotal.Name = "lblOpeningsTotal";
+            this.lblOpeningsTotal.Size = new System.Drawing.Size(88, 23);
+            this.lblOpeningsTotal.TabIndex = 392;
+            this.lblOpeningsTotal.Text = "0.00";
+            this.lblOpeningsTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label11
+            // 
+            this.label11.Location = new System.Drawing.Point(380, 287);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(100, 23);
+            this.label11.TabIndex = 391;
+            this.label11.Text = "Page Total:          $";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblWallsTotal
+            // 
+            this.lblWallsTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblWallsTotal.Location = new System.Drawing.Point(478, 287);
+            this.lblWallsTotal.Name = "lblWallsTotal";
+            this.lblWallsTotal.Size = new System.Drawing.Size(88, 23);
+            this.lblWallsTotal.TabIndex = 392;
+            this.lblWallsTotal.Text = "0.00";
+            this.lblWallsTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label12
+            // 
+            this.label12.Location = new System.Drawing.Point(380, 287);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(100, 23);
+            this.label12.TabIndex = 391;
+            this.label12.Text = "Page Total:          $";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblFlooringTotal
+            // 
+            this.lblFlooringTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblFlooringTotal.Location = new System.Drawing.Point(478, 287);
+            this.lblFlooringTotal.Name = "lblFlooringTotal";
+            this.lblFlooringTotal.Size = new System.Drawing.Size(88, 23);
+            this.lblFlooringTotal.TabIndex = 392;
+            this.lblFlooringTotal.Text = "0.00";
+            this.lblFlooringTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label13
+            // 
+            this.label13.Location = new System.Drawing.Point(380, 287);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(100, 23);
+            this.label13.TabIndex = 391;
+            this.label13.Text = "Page Total:          $";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.ClientSize = new System.Drawing.Size(837, 610);
-            this.Controls.Add(this.label7);
+            this.ClientSize = new System.Drawing.Size(834, 611);
+            this.Controls.Add(this.lblEstimateTotal);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.groupBoxOpenings);
@@ -3921,7 +4039,17 @@ namespace Materials_List_Estimation
         private System.Windows.Forms.TextBox lblOtherQty9;
         private System.Windows.Forms.Button updateBtn;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblEstimateTotal;
+        private System.Windows.Forms.Label lblFlooringTotal;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblWallsTotal;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblOpeningsTotal;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblRoofTotal;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblOtherTotal;
+        private System.Windows.Forms.Label label8;
     }
 }
 

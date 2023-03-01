@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Printing;
 
 
 
@@ -15,6 +16,8 @@ namespace Materials_List_Estimation
 {
     public partial class mainForm : Form
     {
+
+        Bitmap memoryImage;
         public mainForm()
         {
             InitializeComponent();
@@ -1051,7 +1054,6 @@ namespace Materials_List_Estimation
                     lblOtherTotal.Text = otherItemsTotal.ToString();
                 }
             }
-
              lblEstimateTotal.Text = grandTotal.ToString();
         }
 
@@ -1135,30 +1137,33 @@ namespace Materials_List_Estimation
 
         }
 
-        private void exportBtn_Click(object sender, EventArgs e)
+        public void exportBtn_Click(object sender, EventArgs e)
         {
-            //before your loop
-            var csv = new StringBuilder();
+            printThisScreen();
+        }
 
-            //in your loop
-            var first = lblFlooringItem1.Text.ToString();
-            var second = lblFlooringMaterial1.Text.ToString();
-            var third = lblFlooringDesc1.Text.ToString();
-            var forth = lblFlooringQty1.Text.ToString();
-            var fifth = lblFlooringPrice1.Text.ToString();
-            var sixth = lblFlooringCost1.Text.ToString();
-            //Suggestion made by KyleMit
 
-            //redirect_output("test_csv_file.txt");
-            Console.WriteLine("1,2,3,4,5,6,6,7,test,file");
-            //redirect_output(false);
+        public void printThisScreen()
+        {
+            PrintDocument printDocument1 = new PrintDocument();
+            printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
+            CaptureScreen();
+            printDocument1.Print();
+        }
 
-            var newLine = string.Format("{0},{1},{2},{3},{4},{5}", first, second, third, forth, fifth, sixth);
-            csv.AppendLine(newLine);
+        private void CaptureScreen()
+        {
+            Graphics myGraphics = this.CreateGraphics();
+            Size s = this.Size;
+            memoryImage = new Bitmap(s.Width, s.Height, myGraphics);
+            Graphics memoryGraphics = Graphics.FromImage(memoryImage);
+            memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, s);
+        }
 
-            //after your loop
-            //string path = "C:\Users\lakef\OneDrive\Desktop";
-            //File.WriteAllText(path, csv.ToString());
+        private void printDocument1_PrintPage(Object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(memoryImage, 0, 0);
         }
     }
 }
+

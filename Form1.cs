@@ -1054,7 +1054,10 @@ namespace Materials_List_Estimation
                     lblOtherTotal.Text = otherItemsTotal.ToString();
                 }
             }
-             lblEstimateTotal.Text = grandTotal.ToString();
+            if (lblEstimateTotal.Text != "error")
+            {
+                    lblEstimateTotal.Text = grandTotal.ToString();
+            }
         }
 
         private void resetColors()
@@ -1139,8 +1142,248 @@ namespace Materials_List_Estimation
 
         public void exportBtn_Click(object sender, EventArgs e)
         {
-            printThisScreen();
+            //printThisScreen();
+            saveThisInfo();
         }
+
+        public void saveThisInfo()
+        {
+
+            if (lblEstimateTotal.Text != "error" && lblEstimateTotal.Text != "0.00")
+            {
+                // Folder, where a file is created.
+                string folderRoot = @"C:\";
+                string fileName = txtProjectName.Text;
+                //DateTime today = DateTime.Today;
+                string fileDate = DateTime.Now.ToString("yyyy-MM-dd");
+                string fileType = ".csv";
+                string fullPath = folderRoot + fileDate + "_" + fileName + fileType;
+                string csvOutput = buildTheOutput();
+                string[] stringArray = new string[] { csvOutput };
+                File.WriteAllLines(fullPath, stringArray);
+                string readText = File.ReadAllText(fullPath);
+                Console.WriteLine(readText);
+                //Console.WriteLine(today);
+            }
+        }
+
+        public string buildTheOutput()
+        {
+            string mainString;
+            mainString = generalInfoOutput();
+            if (flooringBtn.Checked == true)
+            {
+                mainString = generalFlooringOutput(mainString);
+            }
+            if (wallsBtn.Checked == true)
+            {
+                mainString = generalWallsOutput(mainString);
+            }
+            if (openingsBtn.Checked == true)
+            {
+                mainString = generalOpeningsOutput(mainString);
+            }
+            if (roofBtn.Checked == true)
+            {
+                mainString = generalRoofOutput(mainString);
+            }
+            if (otherItemsBtn.Checked == true)
+            {
+                mainString = generalOtherItemsOutput(mainString);
+            }
+
+            mainString += "\n\n,,,,,,,Grand Total," + lblEstimateTotal.Text;
+            return mainString;
+        }
+
+        public string generalInfoOutput()
+        {
+            string temp;
+            temp = "Project Name:," + txtProjectName.Text + "\nProject Manager:," + txtProjectManager.Text + "\nProject Address:," + txtProjectAddress.Text + "\nCity:," + textBox3.Text + ",State:," + listBox1.GetItemText(listBox1.SelectedItem);
+            return temp;
+        }
+
+        public string generalFlooringOutput(string temp)
+        {
+            temp += "\n\n";
+            temp += "Flooring,Item,Material,Size/Description,Quantity,Price,Cost\n";
+            temp += "," + lblFlooringItem1.Text + "," + lblFlooringMaterial1.Text + "," + lblFlooringDesc1.Text + "," + lblFlooringQty1.Text + "," + lblFlooringPrice1.Text + "," + lblFlooringCost1.Text + "\n";
+            temp += "," + lblFlooringItem2.Text + "," + lblFlooringMaterial2.Text + "," + lblFlooringDesc2.Text + "," + lblFlooringQty2.Text + "," + lblFlooringPrice2.Text + "," + lblFlooringCost2.Text + "\n";
+            temp += "," + lblFlooringItem3.Text + "," + lblFlooringMaterial3.Text + "," + lblFlooringDesc3.Text + "," + lblFlooringQty3.Text + "," + lblFlooringPrice3.Text + "," + lblFlooringCost3.Text + "\n";
+            temp += "," + lblFlooringItem4.Text + "," + lblFlooringMaterial4.Text + "," + lblFlooringDesc4.Text + "," + lblFlooringQty4.Text + "," + lblFlooringPrice4.Text + "," + lblFlooringCost4.Text + "\n";
+            temp += ",,,,,,,Sub Total," + lblFlooringTotal.Text;
+            return temp;
+        }
+        public string generalWallsOutput(string temp)
+        {
+            temp += "\n\n";
+            temp += "Walls,Item,Material,Size/Description,Quantity,Price,Cost\n";
+            temp += "," + lblWallsItem1.Text + "," + lblWallsMaterial1.Text + "," + lblWallsDesc1.Text + "," + lblWallsQty1.Text + "," + lblWallsPrice1.Text + "," + lblWallsCost1.Text + "\n";
+            temp += "," + lblWallsItem2.Text + "," + lblWallsMaterial2.Text + "," + lblWallsDesc2.Text + "," + lblWallsQty2.Text + "," + lblWallsPrice2.Text + "," + lblWallsCost2.Text + "\n";
+            temp += "," + lblWallsItem3.Text + "," + lblWallsMaterial3.Text + "," + lblWallsDesc3.Text + "," + lblWallsQty3.Text + "," + lblWallsPrice3.Text + "," + lblWallsCost3.Text + "\n";
+            temp += "," + lblWallsItem4.Text + "," + lblWallsMaterial4.Text + "," + lblWallsDesc4.Text + "," + lblWallsQty4.Text + "," + lblWallsPrice4.Text + "," + lblWallsCost4.Text + "\n";
+            temp += "," + lblWallsItem5.Text + "," + lblWallsMaterial5.Text + "," + lblWallsDesc5.Text + "," + lblWallsQty5.Text + "," + lblWallsPrice5.Text + "," + lblWallsCost5.Text + "\n";
+            temp += "," + lblWallsItem6.Text + "," + lblWallsMaterial6.Text + "," + lblWallsDesc6.Text + "," + lblWallsQty6.Text + "," + lblWallsPrice6.Text + "," + lblWallsCost6.Text + "\n";
+            temp += "," + lblWallsItem7.Text + "," + lblWallsMaterial7.Text + "," + lblWallsDesc7.Text + "," + lblWallsQty7.Text + "," + lblWallsPrice7.Text + "," + lblWallsCost7.Text + "\n";
+            temp += "," + lblWallsItem8.Text + "," + lblWallsMaterial8.Text + "," + lblWallsDesc8.Text + "," + lblWallsQty8.Text + "," + lblWallsPrice8.Text + "," + lblWallsCost8.Text + "\n";
+            temp += "," + lblWallsItem9.Text + "," + lblWallsMaterial9.Text + "," + lblWallsDesc9.Text + "," + lblWallsQty9.Text + "," + lblWallsPrice9.Text + "," + lblWallsCost9.Text + "\n";
+            temp += "," + lblWallsItem10.Text + "," + lblWallsMaterial10.Text + "," + lblWallsDesc10.Text + "," + lblWallsQty10.Text + "," + lblWallsPrice10.Text + "," + lblWallsCost10.Text + "\n";
+            temp += "," + lblWallsItem11.Text + "," + lblWallsMaterial11.Text + "," + lblWallsDesc11.Text + "," + lblWallsQty11.Text + "," + lblWallsPrice11.Text + "," + lblWallsCost11.Text + "\n";
+            temp += ",,,,,,,Sub Total," + lblWallsTotal.Text;
+            return temp;
+        }
+        public string generalOpeningsOutput(string temp)
+        {
+            temp += "\n\n";
+            temp += "Openings,Item,Material,Size/Description,Quantity,Price,Cost\n";
+            temp += "," + lblOpeningsItem1.Text + "," + lblOpeningsMaterial1.Text + "," + lblOpeningsDesc1.Text + "," + lblOpeningsQty1.Text + "," + lblOpeningsPrice1.Text + "," + lblOpeningsCost1.Text + "\n";
+            temp += "," + lblOpeningsItem2.Text + "," + lblOpeningsMaterial2.Text + "," + lblOpeningsDesc2.Text + "," + lblOpeningsQty2.Text + "," + lblOpeningsPrice2.Text + "," + lblOpeningsCost2.Text + "\n";
+            temp += ",,,,,,,Sub Total," + lblOpeningsTotal.Text;
+            return temp;
+        }
+        public string generalRoofOutput(string temp)
+        {
+            temp += "\n\n";
+            temp += "Roof,Item,Material,Size/Description,Quantity,Price,Cost\n";
+            temp += "," + lblRoofItem1.Text + "," + lblRoofMaterial1.Text + "," + lblRoofDesc1.Text + "," + lblRoofQty1.Text + "," + lblRoofPrice1.Text + "," + lblRoofCost1.Text + "\n";
+            temp += "," + lblRoofItem2.Text + "," + lblRoofMaterial2.Text + "," + lblRoofDesc2.Text + "," + lblRoofQty2.Text + "," + lblRoofPrice2.Text + "," + lblRoofCost2.Text + "\n";
+            temp += "," + lblRoofItem3.Text + "," + lblRoofMaterial3.Text + "," + lblRoofDesc3.Text + "," + lblRoofQty3.Text + "," + lblRoofPrice3.Text + "," + lblRoofCost3.Text + "\n";
+            temp += "," + lblRoofItem4.Text + "," + lblRoofMaterial4.Text + "," + lblRoofDesc4.Text + "," + lblRoofQty4.Text + "," + lblRoofPrice4.Text + "," + lblRoofCost4.Text + "\n";
+            temp += "," + lblRoofItem5.Text + "," + lblRoofMaterial5.Text + "," + lblRoofDesc5.Text + "," + lblRoofQty5.Text + "," + lblRoofPrice5.Text + "," + lblRoofCost5.Text + "\n";
+            temp += "," + lblRoofItem6.Text + "," + lblRoofMaterial6.Text + "," + lblRoofDesc6.Text + "," + lblRoofQty6.Text + "," + lblRoofPrice6.Text + "," + lblRoofCost6.Text + "\n";
+            temp += "," + lblRoofItem7.Text + "," + lblRoofMaterial7.Text + "," + lblRoofDesc7.Text + "," + lblRoofQty7.Text + "," + lblRoofPrice7.Text + "," + lblRoofCost7.Text + "\n";
+            temp += "," + lblRoofItem8.Text + "," + lblRoofMaterial8.Text + "," + lblRoofDesc8.Text + "," + lblRoofQty8.Text + "," + lblRoofPrice8.Text + "," + lblRoofCost8.Text + "\n";
+            temp += ",,,,,,,Sub Total," + lblRoofTotal.Text;
+            return temp;
+        }
+        public string generalOtherItemsOutput(string temp)
+        {
+            temp += "\n\n";
+            temp += "Other Items,Item,Material,Size/Description,Quantity,Price,Cost\n";
+            temp += "," + lblOtherItem1.Text + "," + lblOtherMaterial1.Text + "," + lblOtherDesc1.Text + "," + lblOtherQty1.Text + "," + lblOtherPrice1.Text + "," + lblOtherCost1.Text + "\n";
+            temp += "," + lblOtherItem2.Text + "," + lblOtherMaterial2.Text + "," + lblOtherDesc2.Text + "," + lblOtherQty2.Text + "," + lblOtherPrice2.Text + "," + lblOtherCost2.Text + "\n";
+            temp += "," + lblOtherItem3.Text + "," + lblOtherMaterial3.Text + "," + lblOtherDesc3.Text + "," + lblOtherQty3.Text + "," + lblOtherPrice3.Text + "," + lblOtherCost3.Text + "\n";
+            temp += "," + lblOtherItem4.Text + "," + lblOtherMaterial4.Text + "," + lblOtherDesc4.Text + "," + lblOtherQty4.Text + "," + lblOtherPrice4.Text + "," + lblOtherCost4.Text + "\n";
+            temp += "," + lblOtherItem5.Text + "," + lblOtherMaterial5.Text + "," + lblOtherDesc5.Text + "," + lblOtherQty5.Text + "," + lblOtherPrice5.Text + "," + lblOtherCost5.Text + "\n";
+            temp += "," + lblOtherItem6.Text + "," + lblOtherMaterial6.Text + "," + lblOtherDesc6.Text + "," + lblOtherQty6.Text + "," + lblOtherPrice6.Text + "," + lblOtherCost6.Text + "\n";
+            temp += "," + lblOtherItem7.Text + "," + lblOtherMaterial7.Text + "," + lblOtherDesc7.Text + "," + lblOtherQty7.Text + "," + lblOtherPrice7.Text + "," + lblOtherCost7.Text + "\n";
+            temp += "," + lblOtherItem8.Text + "," + lblOtherMaterial8.Text + "," + lblOtherDesc8.Text + "," + lblOtherQty8.Text + "," + lblOtherPrice8.Text + "," + lblOtherCost8.Text + "\n";
+            temp += "," + lblOtherItem9.Text + "," + lblOtherMaterial9.Text + "," + lblOtherDesc9.Text + "," + lblOtherQty9.Text + "," + lblOtherPrice9.Text + "," + lblOtherCost9.Text + "\n";
+            temp += "," + lblOtherItem10.Text + "," + lblOtherMaterial10.Text + "," + lblOtherDesc10.Text + "," + lblOtherQty10.Text + "," + lblOtherPrice10.Text + "," + lblOtherCost10.Text + "\n";
+            temp += ",,,,,,,Sub Total," + lblOtherTotal.Text;
+            return temp;
+        }
+
+        public void clearAll()
+        {
+
+            listCategory.SelectedItem = "General";
+            flooringBtn.Checked = false;
+            wallsBtn.Checked = false;
+            openingsBtn.Checked = false;
+            roofBtn.Checked = false;
+            otherItemsBtn.Checked = false;
+            updateBtn_Click(null, null);
+            lblEstimateTotal.Text = "0.00";
+
+            txtProjectName.Text = "";
+            txtProjectManager.Text = "";
+            txtProjectAddress.Text = "";
+            textBox3.Text = "";
+            listBox1.SelectedItem = "AL";
+
+            lblFlooringQty1.Text = "";
+            lblFlooringQty2.Text = "";
+            lblFlooringQty3.Text = "";
+            lblFlooringQty4.Text = "";
+
+            lblWallsQty1.Text = "";
+            lblWallsQty2.Text = "";
+            lblWallsQty3.Text = "";
+            lblWallsQty4.Text = "";
+            lblWallsQty5.Text = "";
+            lblWallsQty6.Text = "";
+            lblWallsQty7.Text = "";
+            lblWallsQty8.Text = "";
+            lblWallsQty9.Text = "";
+            lblWallsQty10.Text = "";
+            lblWallsQty11.Text = "";
+
+            lblOpeningsQty1.Text = "";
+            lblOpeningsQty2.Text = "";
+
+            lblRoofQty1.Text = "";
+            lblRoofQty2.Text = "";
+            lblRoofQty3.Text = "";
+            lblRoofQty4.Text = "";
+            lblRoofQty5.Text = "";
+            lblRoofQty6.Text = "";
+            lblRoofQty7.Text = "";
+            lblRoofQty8.Text = "";
+
+            lblOtherItem1.Text = "";
+            lblOtherMaterial1.Text = "";
+            lblOtherDesc1.Text = "";
+            lblOtherQty1.Text = "";
+            lblOtherPrice1.Text = "";
+            lblOtherCost1.Text = "";
+            lblOtherItem2.Text = "";
+            lblOtherMaterial2.Text = "";
+            lblOtherDesc2.Text = "";
+            lblOtherQty2.Text = "";
+            lblOtherPrice2.Text = "";
+            lblOtherCost2.Text = "";
+            lblOtherItem3.Text = "";
+            lblOtherMaterial3.Text = "";
+            lblOtherDesc3.Text = "";
+            lblOtherQty3.Text = "";
+            lblOtherPrice3.Text = "";
+            lblOtherCost3.Text = "";
+            lblOtherItem4.Text = "";
+            lblOtherMaterial4.Text = "";
+            lblOtherDesc4.Text = "";
+            lblOtherQty4.Text = "";
+            lblOtherPrice4.Text = "";
+            lblOtherCost4.Text = "";
+            lblOtherItem5.Text = "";
+            lblOtherMaterial5.Text = "";
+            lblOtherDesc5.Text = "";
+            lblOtherQty5.Text = "";
+            lblOtherPrice5.Text = "";
+            lblOtherCost5.Text = "";
+            lblOtherItem6.Text = "";
+            lblOtherMaterial6.Text = "";
+            lblOtherDesc6.Text = "";
+            lblOtherQty6.Text = "";
+            lblOtherPrice6.Text = "";
+            lblOtherCost6.Text = "";
+            lblOtherItem7.Text = "";
+            lblOtherMaterial7.Text = "";
+            lblOtherDesc7.Text = "";
+            lblOtherQty7.Text = "";
+            lblOtherPrice7.Text = "";
+            lblOtherCost7.Text = "";
+            lblOtherItem8.Text = "";
+            lblOtherMaterial8.Text = "";
+            lblOtherDesc8.Text = "";
+            lblOtherQty8.Text = "";
+            lblOtherPrice8.Text = "";
+            lblOtherCost8.Text = "";
+            lblOtherItem9.Text = "";
+            lblOtherMaterial9.Text = "";
+            lblOtherDesc9.Text = "";
+            lblOtherQty9.Text = "";
+            lblOtherPrice9.Text = "";
+            lblOtherCost9.Text = "";
+            lblOtherItem10.Text = "";
+            lblOtherMaterial10.Text = "";
+            lblOtherDesc10.Text = "";
+            lblOtherQty10.Text = "";
+            lblOtherPrice10.Text = "";
+            lblOtherCost10.Text = "";
+        }
+
+
 
 
         public void printThisScreen()
@@ -1163,6 +1406,11 @@ namespace Materials_List_Estimation
         private void printDocument1_PrintPage(Object sender, PrintPageEventArgs e)
         {
             e.Graphics.DrawImage(memoryImage, 0, 0);
+        }
+
+        private void newBtn_Click(object sender, EventArgs e)
+        {
+            clearAll();
         }
     }
 }

@@ -41,6 +41,8 @@ namespace Materials_List_Estimation
             this.updateBtn = new System.Windows.Forms.Button();
             this.listCategory = new System.Windows.Forms.ListBox();
             this.groupBoxFlooring = new System.Windows.Forms.GroupBox();
+            this.lblFlooringTotal = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.lblFlooringDesc4 = new System.Windows.Forms.Label();
             this.lblFlooringDesc3 = new System.Windows.Forms.Label();
             this.lblFlooringDesc2 = new System.Windows.Forms.Label();
@@ -80,6 +82,8 @@ namespace Materials_List_Estimation
             this.lblFlooringItem2 = new System.Windows.Forms.Label();
             this.lblFlooringItem1 = new System.Windows.Forms.Label();
             this.groupBoxWalls = new System.Windows.Forms.GroupBox();
+            this.lblWallsTotal = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.lblWallsDesc11 = new System.Windows.Forms.Label();
             this.lblWallsDesc10 = new System.Windows.Forms.Label();
             this.lblWallsDesc9 = new System.Windows.Forms.Label();
@@ -175,6 +179,8 @@ namespace Materials_List_Estimation
             this.lblWallsItem2 = new System.Windows.Forms.Label();
             this.lblWallsItem1 = new System.Windows.Forms.Label();
             this.groupBoxOpenings = new System.Windows.Forms.GroupBox();
+            this.lblOpeningsTotal = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.lblOpeningsDesc2 = new System.Windows.Forms.Label();
             this.lblOpeningsDesc1 = new System.Windows.Forms.Label();
             this.label109 = new System.Windows.Forms.Label();
@@ -198,6 +204,8 @@ namespace Materials_List_Estimation
             this.lblOpeningsItem2 = new System.Windows.Forms.Label();
             this.lblOpeningsItem1 = new System.Windows.Forms.Label();
             this.groupBoxRoof = new System.Windows.Forms.GroupBox();
+            this.lblRoofTotal = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.lblRoofDesc8 = new System.Windows.Forms.Label();
             this.lblRoofDesc7 = new System.Windows.Forms.Label();
             this.lblRoofDesc6 = new System.Windows.Forms.Label();
@@ -269,6 +277,8 @@ namespace Materials_List_Estimation
             this.lblRoofItem2 = new System.Windows.Forms.Label();
             this.lblRoofItem1 = new System.Windows.Forms.Label();
             this.groupBoxOtherItems = new System.Windows.Forms.GroupBox();
+            this.lblOtherTotal = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.lblOtherItem10 = new System.Windows.Forms.TextBox();
             this.lblOtherItem9 = new System.Windows.Forms.TextBox();
             this.lblOtherItem8 = new System.Windows.Forms.TextBox();
@@ -361,23 +371,13 @@ namespace Materials_List_Estimation
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtProjectAddress = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtProjectManager = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtProjectName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lblEstimateTotal = new System.Windows.Forms.Label();
-            this.lblOtherTotal = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblRoofTotal = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblOpeningsTotal = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblWallsTotal = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblFlooringTotal = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.groupBoxFlooring.SuspendLayout();
             this.groupBoxWalls.SuspendLayout();
             this.groupBoxOpenings.SuspendLayout();
@@ -459,6 +459,7 @@ namespace Materials_List_Estimation
             this.newBtn.TabIndex = 8;
             this.newBtn.Text = "New";
             this.newBtn.UseVisualStyleBackColor = true;
+            this.newBtn.Click += new System.EventHandler(this.newBtn_Click);
             // 
             // exitBtn
             // 
@@ -539,6 +540,25 @@ namespace Materials_List_Estimation
             this.groupBoxFlooring.TabIndex = 4;
             this.groupBoxFlooring.TabStop = false;
             this.groupBoxFlooring.Text = "Estimating List - Flooring";
+            // 
+            // lblFlooringTotal
+            // 
+            this.lblFlooringTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblFlooringTotal.Location = new System.Drawing.Point(478, 287);
+            this.lblFlooringTotal.Name = "lblFlooringTotal";
+            this.lblFlooringTotal.Size = new System.Drawing.Size(88, 23);
+            this.lblFlooringTotal.TabIndex = 392;
+            this.lblFlooringTotal.Text = "0.00";
+            this.lblFlooringTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label13
+            // 
+            this.label13.Location = new System.Drawing.Point(380, 287);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(100, 23);
+            this.label13.TabIndex = 391;
+            this.label13.Text = "Page Total:          $";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblFlooringDesc4
             // 
@@ -962,6 +982,25 @@ namespace Materials_List_Estimation
             this.groupBoxWalls.TabIndex = 5;
             this.groupBoxWalls.TabStop = false;
             this.groupBoxWalls.Text = "Estimating List - Walls";
+            // 
+            // lblWallsTotal
+            // 
+            this.lblWallsTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblWallsTotal.Location = new System.Drawing.Point(478, 287);
+            this.lblWallsTotal.Name = "lblWallsTotal";
+            this.lblWallsTotal.Size = new System.Drawing.Size(88, 23);
+            this.lblWallsTotal.TabIndex = 392;
+            this.lblWallsTotal.Text = "0.00";
+            this.lblWallsTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label12
+            // 
+            this.label12.Location = new System.Drawing.Point(380, 287);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(100, 23);
+            this.label12.TabIndex = 391;
+            this.label12.Text = "Page Total:          $";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblWallsDesc11
             // 
@@ -1776,6 +1815,25 @@ namespace Materials_List_Estimation
             this.groupBoxOpenings.TabStop = false;
             this.groupBoxOpenings.Text = "Estimating List - Openings";
             // 
+            // lblOpeningsTotal
+            // 
+            this.lblOpeningsTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblOpeningsTotal.Location = new System.Drawing.Point(478, 287);
+            this.lblOpeningsTotal.Name = "lblOpeningsTotal";
+            this.lblOpeningsTotal.Size = new System.Drawing.Size(88, 23);
+            this.lblOpeningsTotal.TabIndex = 392;
+            this.lblOpeningsTotal.Text = "0.00";
+            this.lblOpeningsTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label11
+            // 
+            this.label11.Location = new System.Drawing.Point(380, 287);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(100, 23);
+            this.label11.TabIndex = 391;
+            this.label11.Text = "Page Total:          $";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // lblOpeningsDesc2
             // 
             this.lblOpeningsDesc2.Location = new System.Drawing.Point(256, 66);
@@ -2042,6 +2100,25 @@ namespace Materials_List_Estimation
             this.groupBoxRoof.TabIndex = 6;
             this.groupBoxRoof.TabStop = false;
             this.groupBoxRoof.Text = "Estimating List - Roof";
+            // 
+            // lblRoofTotal
+            // 
+            this.lblRoofTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblRoofTotal.Location = new System.Drawing.Point(478, 287);
+            this.lblRoofTotal.Name = "lblRoofTotal";
+            this.lblRoofTotal.Size = new System.Drawing.Size(88, 23);
+            this.lblRoofTotal.TabIndex = 392;
+            this.lblRoofTotal.Text = "0.00";
+            this.lblRoofTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(380, 287);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(100, 23);
+            this.label9.TabIndex = 391;
+            this.label9.Text = "Page Total:          $";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblRoofDesc8
             // 
@@ -2715,26 +2792,45 @@ namespace Materials_List_Estimation
             this.groupBoxOtherItems.Controls.Add(this.label260);
             this.groupBoxOtherItems.Controls.Add(this.label261);
             this.groupBoxOtherItems.Controls.Add(this.label262);
-            this.groupBoxOtherItems.Location = new System.Drawing.Point(170, 345);
+            this.groupBoxOtherItems.Location = new System.Drawing.Point(170, 341);
             this.groupBoxOtherItems.Name = "groupBoxOtherItems";
-            this.groupBoxOtherItems.Size = new System.Drawing.Size(603, 41);
+            this.groupBoxOtherItems.Size = new System.Drawing.Size(603, 42);
             this.groupBoxOtherItems.TabIndex = 11;
             this.groupBoxOtherItems.TabStop = false;
             this.groupBoxOtherItems.Text = "Estimating List - Other Items";
+            // 
+            // lblOtherTotal
+            // 
+            this.lblOtherTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblOtherTotal.Location = new System.Drawing.Point(478, 287);
+            this.lblOtherTotal.Name = "lblOtherTotal";
+            this.lblOtherTotal.Size = new System.Drawing.Size(88, 23);
+            this.lblOtherTotal.TabIndex = 390;
+            this.lblOtherTotal.Text = "0.00";
+            this.lblOtherTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(380, 287);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 23);
+            this.label8.TabIndex = 389;
+            this.label8.Text = "Page Total:          $";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblOtherItem10
             // 
             this.lblOtherItem10.Location = new System.Drawing.Point(12, 230);
             this.lblOtherItem10.Name = "lblOtherItem10";
             this.lblOtherItem10.Size = new System.Drawing.Size(106, 20);
-            this.lblOtherItem10.TabIndex = 388;
+            this.lblOtherItem10.TabIndex = 396;
             // 
             // lblOtherItem9
             // 
             this.lblOtherItem9.Location = new System.Drawing.Point(12, 209);
             this.lblOtherItem9.Name = "lblOtherItem9";
             this.lblOtherItem9.Size = new System.Drawing.Size(106, 20);
-            this.lblOtherItem9.TabIndex = 387;
+            this.lblOtherItem9.TabIndex = 391;
             // 
             // lblOtherItem8
             // 
@@ -2748,238 +2844,238 @@ namespace Materials_List_Estimation
             this.lblOtherItem7.Location = new System.Drawing.Point(12, 168);
             this.lblOtherItem7.Name = "lblOtherItem7";
             this.lblOtherItem7.Size = new System.Drawing.Size(106, 20);
-            this.lblOtherItem7.TabIndex = 385;
+            this.lblOtherItem7.TabIndex = 381;
             // 
             // lblOtherItem6
             // 
             this.lblOtherItem6.Location = new System.Drawing.Point(12, 147);
             this.lblOtherItem6.Name = "lblOtherItem6";
             this.lblOtherItem6.Size = new System.Drawing.Size(106, 20);
-            this.lblOtherItem6.TabIndex = 384;
+            this.lblOtherItem6.TabIndex = 376;
             // 
             // lblOtherItem5
             // 
             this.lblOtherItem5.Location = new System.Drawing.Point(12, 126);
             this.lblOtherItem5.Name = "lblOtherItem5";
             this.lblOtherItem5.Size = new System.Drawing.Size(106, 20);
-            this.lblOtherItem5.TabIndex = 383;
+            this.lblOtherItem5.TabIndex = 371;
             // 
             // lblOtherItem4
             // 
             this.lblOtherItem4.Location = new System.Drawing.Point(12, 105);
             this.lblOtherItem4.Name = "lblOtherItem4";
             this.lblOtherItem4.Size = new System.Drawing.Size(106, 20);
-            this.lblOtherItem4.TabIndex = 382;
+            this.lblOtherItem4.TabIndex = 366;
             // 
             // lblOtherItem3
             // 
             this.lblOtherItem3.Location = new System.Drawing.Point(12, 84);
             this.lblOtherItem3.Name = "lblOtherItem3";
             this.lblOtherItem3.Size = new System.Drawing.Size(106, 20);
-            this.lblOtherItem3.TabIndex = 381;
+            this.lblOtherItem3.TabIndex = 361;
             // 
             // lblOtherItem2
             // 
             this.lblOtherItem2.Location = new System.Drawing.Point(12, 63);
             this.lblOtherItem2.Name = "lblOtherItem2";
             this.lblOtherItem2.Size = new System.Drawing.Size(106, 20);
-            this.lblOtherItem2.TabIndex = 380;
+            this.lblOtherItem2.TabIndex = 356;
             // 
             // lblOtherItem1
             // 
             this.lblOtherItem1.Location = new System.Drawing.Point(12, 42);
             this.lblOtherItem1.Name = "lblOtherItem1";
             this.lblOtherItem1.Size = new System.Drawing.Size(106, 20);
-            this.lblOtherItem1.TabIndex = 379;
+            this.lblOtherItem1.TabIndex = 351;
             // 
             // lblOtherMaterial10
             // 
             this.lblOtherMaterial10.Location = new System.Drawing.Point(126, 230);
             this.lblOtherMaterial10.Name = "lblOtherMaterial10";
             this.lblOtherMaterial10.Size = new System.Drawing.Size(126, 20);
-            this.lblOtherMaterial10.TabIndex = 378;
+            this.lblOtherMaterial10.TabIndex = 397;
             // 
             // lblOtherMaterial9
             // 
             this.lblOtherMaterial9.Location = new System.Drawing.Point(126, 209);
             this.lblOtherMaterial9.Name = "lblOtherMaterial9";
             this.lblOtherMaterial9.Size = new System.Drawing.Size(126, 20);
-            this.lblOtherMaterial9.TabIndex = 377;
+            this.lblOtherMaterial9.TabIndex = 392;
             // 
             // lblOtherMaterial8
             // 
             this.lblOtherMaterial8.Location = new System.Drawing.Point(126, 189);
             this.lblOtherMaterial8.Name = "lblOtherMaterial8";
             this.lblOtherMaterial8.Size = new System.Drawing.Size(126, 20);
-            this.lblOtherMaterial8.TabIndex = 376;
+            this.lblOtherMaterial8.TabIndex = 387;
             // 
             // lblOtherMaterial7
             // 
             this.lblOtherMaterial7.Location = new System.Drawing.Point(126, 168);
             this.lblOtherMaterial7.Name = "lblOtherMaterial7";
             this.lblOtherMaterial7.Size = new System.Drawing.Size(126, 20);
-            this.lblOtherMaterial7.TabIndex = 375;
+            this.lblOtherMaterial7.TabIndex = 382;
             // 
             // lblOtherMaterial6
             // 
             this.lblOtherMaterial6.Location = new System.Drawing.Point(126, 147);
             this.lblOtherMaterial6.Name = "lblOtherMaterial6";
             this.lblOtherMaterial6.Size = new System.Drawing.Size(126, 20);
-            this.lblOtherMaterial6.TabIndex = 374;
+            this.lblOtherMaterial6.TabIndex = 377;
             // 
             // lblOtherMaterial5
             // 
             this.lblOtherMaterial5.Location = new System.Drawing.Point(126, 126);
             this.lblOtherMaterial5.Name = "lblOtherMaterial5";
             this.lblOtherMaterial5.Size = new System.Drawing.Size(126, 20);
-            this.lblOtherMaterial5.TabIndex = 373;
+            this.lblOtherMaterial5.TabIndex = 372;
             // 
             // lblOtherMaterial4
             // 
             this.lblOtherMaterial4.Location = new System.Drawing.Point(126, 105);
             this.lblOtherMaterial4.Name = "lblOtherMaterial4";
             this.lblOtherMaterial4.Size = new System.Drawing.Size(126, 20);
-            this.lblOtherMaterial4.TabIndex = 372;
+            this.lblOtherMaterial4.TabIndex = 367;
             // 
             // lblOtherMaterial3
             // 
             this.lblOtherMaterial3.Location = new System.Drawing.Point(126, 84);
             this.lblOtherMaterial3.Name = "lblOtherMaterial3";
             this.lblOtherMaterial3.Size = new System.Drawing.Size(126, 20);
-            this.lblOtherMaterial3.TabIndex = 371;
+            this.lblOtherMaterial3.TabIndex = 362;
             // 
             // lblOtherMaterial2
             // 
             this.lblOtherMaterial2.Location = new System.Drawing.Point(126, 63);
             this.lblOtherMaterial2.Name = "lblOtherMaterial2";
             this.lblOtherMaterial2.Size = new System.Drawing.Size(126, 20);
-            this.lblOtherMaterial2.TabIndex = 370;
+            this.lblOtherMaterial2.TabIndex = 357;
             // 
             // lblOtherMaterial1
             // 
             this.lblOtherMaterial1.Location = new System.Drawing.Point(126, 42);
             this.lblOtherMaterial1.Name = "lblOtherMaterial1";
             this.lblOtherMaterial1.Size = new System.Drawing.Size(126, 20);
-            this.lblOtherMaterial1.TabIndex = 369;
+            this.lblOtherMaterial1.TabIndex = 352;
             // 
             // lblOtherDesc10
             // 
             this.lblOtherDesc10.Location = new System.Drawing.Point(259, 230);
             this.lblOtherDesc10.Name = "lblOtherDesc10";
             this.lblOtherDesc10.Size = new System.Drawing.Size(147, 20);
-            this.lblOtherDesc10.TabIndex = 368;
+            this.lblOtherDesc10.TabIndex = 398;
             // 
             // lblOtherDesc9
             // 
             this.lblOtherDesc9.Location = new System.Drawing.Point(259, 209);
             this.lblOtherDesc9.Name = "lblOtherDesc9";
             this.lblOtherDesc9.Size = new System.Drawing.Size(147, 20);
-            this.lblOtherDesc9.TabIndex = 367;
+            this.lblOtherDesc9.TabIndex = 393;
             // 
             // lblOtherDesc8
             // 
             this.lblOtherDesc8.Location = new System.Drawing.Point(259, 189);
             this.lblOtherDesc8.Name = "lblOtherDesc8";
             this.lblOtherDesc8.Size = new System.Drawing.Size(147, 20);
-            this.lblOtherDesc8.TabIndex = 366;
+            this.lblOtherDesc8.TabIndex = 388;
             // 
             // lblOtherDesc7
             // 
             this.lblOtherDesc7.Location = new System.Drawing.Point(259, 168);
             this.lblOtherDesc7.Name = "lblOtherDesc7";
             this.lblOtherDesc7.Size = new System.Drawing.Size(147, 20);
-            this.lblOtherDesc7.TabIndex = 365;
+            this.lblOtherDesc7.TabIndex = 383;
             // 
             // lblOtherDesc6
             // 
             this.lblOtherDesc6.Location = new System.Drawing.Point(259, 147);
             this.lblOtherDesc6.Name = "lblOtherDesc6";
             this.lblOtherDesc6.Size = new System.Drawing.Size(147, 20);
-            this.lblOtherDesc6.TabIndex = 364;
+            this.lblOtherDesc6.TabIndex = 378;
             // 
             // lblOtherDesc5
             // 
             this.lblOtherDesc5.Location = new System.Drawing.Point(259, 126);
             this.lblOtherDesc5.Name = "lblOtherDesc5";
             this.lblOtherDesc5.Size = new System.Drawing.Size(147, 20);
-            this.lblOtherDesc5.TabIndex = 363;
+            this.lblOtherDesc5.TabIndex = 373;
             // 
             // lblOtherDesc4
             // 
             this.lblOtherDesc4.Location = new System.Drawing.Point(259, 105);
             this.lblOtherDesc4.Name = "lblOtherDesc4";
             this.lblOtherDesc4.Size = new System.Drawing.Size(147, 20);
-            this.lblOtherDesc4.TabIndex = 362;
+            this.lblOtherDesc4.TabIndex = 368;
             // 
             // lblOtherDesc3
             // 
             this.lblOtherDesc3.Location = new System.Drawing.Point(259, 84);
             this.lblOtherDesc3.Name = "lblOtherDesc3";
             this.lblOtherDesc3.Size = new System.Drawing.Size(147, 20);
-            this.lblOtherDesc3.TabIndex = 361;
+            this.lblOtherDesc3.TabIndex = 363;
             // 
             // lblOtherDesc2
             // 
             this.lblOtherDesc2.Location = new System.Drawing.Point(259, 63);
             this.lblOtherDesc2.Name = "lblOtherDesc2";
             this.lblOtherDesc2.Size = new System.Drawing.Size(147, 20);
-            this.lblOtherDesc2.TabIndex = 360;
+            this.lblOtherDesc2.TabIndex = 358;
             // 
             // lblOtherDesc1
             // 
             this.lblOtherDesc1.Location = new System.Drawing.Point(259, 42);
             this.lblOtherDesc1.Name = "lblOtherDesc1";
             this.lblOtherDesc1.Size = new System.Drawing.Size(147, 20);
-            this.lblOtherDesc1.TabIndex = 359;
+            this.lblOtherDesc1.TabIndex = 353;
             // 
             // lblOtherPrice8
             // 
             this.lblOtherPrice8.Location = new System.Drawing.Point(480, 188);
             this.lblOtherPrice8.Name = "lblOtherPrice8";
             this.lblOtherPrice8.Size = new System.Drawing.Size(44, 20);
-            this.lblOtherPrice8.TabIndex = 358;
+            this.lblOtherPrice8.TabIndex = 390;
             // 
             // lblOtherPrice7
             // 
             this.lblOtherPrice7.Location = new System.Drawing.Point(480, 167);
             this.lblOtherPrice7.Name = "lblOtherPrice7";
             this.lblOtherPrice7.Size = new System.Drawing.Size(44, 20);
-            this.lblOtherPrice7.TabIndex = 357;
+            this.lblOtherPrice7.TabIndex = 385;
             // 
             // lblOtherPrice6
             // 
             this.lblOtherPrice6.Location = new System.Drawing.Point(480, 146);
             this.lblOtherPrice6.Name = "lblOtherPrice6";
             this.lblOtherPrice6.Size = new System.Drawing.Size(44, 20);
-            this.lblOtherPrice6.TabIndex = 356;
+            this.lblOtherPrice6.TabIndex = 380;
             // 
             // lblOtherPrice5
             // 
             this.lblOtherPrice5.Location = new System.Drawing.Point(480, 125);
             this.lblOtherPrice5.Name = "lblOtherPrice5";
             this.lblOtherPrice5.Size = new System.Drawing.Size(44, 20);
-            this.lblOtherPrice5.TabIndex = 355;
+            this.lblOtherPrice5.TabIndex = 375;
             // 
             // lblOtherPrice4
             // 
             this.lblOtherPrice4.Location = new System.Drawing.Point(480, 104);
             this.lblOtherPrice4.Name = "lblOtherPrice4";
             this.lblOtherPrice4.Size = new System.Drawing.Size(44, 20);
-            this.lblOtherPrice4.TabIndex = 354;
+            this.lblOtherPrice4.TabIndex = 370;
             // 
             // lblOtherPrice3
             // 
             this.lblOtherPrice3.Location = new System.Drawing.Point(480, 83);
             this.lblOtherPrice3.Name = "lblOtherPrice3";
             this.lblOtherPrice3.Size = new System.Drawing.Size(44, 20);
-            this.lblOtherPrice3.TabIndex = 353;
+            this.lblOtherPrice3.TabIndex = 365;
             // 
             // lblOtherPrice2
             // 
             this.lblOtherPrice2.Location = new System.Drawing.Point(480, 62);
             this.lblOtherPrice2.Name = "lblOtherPrice2";
             this.lblOtherPrice2.Size = new System.Drawing.Size(44, 20);
-            this.lblOtherPrice2.TabIndex = 352;
+            this.lblOtherPrice2.TabIndex = 360;
             // 
             // lblOtherPrice1
             // 
@@ -2987,21 +3083,21 @@ namespace Materials_List_Estimation
             this.lblOtherPrice1.Location = new System.Drawing.Point(480, 41);
             this.lblOtherPrice1.Name = "lblOtherPrice1";
             this.lblOtherPrice1.Size = new System.Drawing.Size(44, 20);
-            this.lblOtherPrice1.TabIndex = 351;
+            this.lblOtherPrice1.TabIndex = 355;
             // 
             // lblOtherPrice10
             // 
             this.lblOtherPrice10.Location = new System.Drawing.Point(480, 230);
             this.lblOtherPrice10.Name = "lblOtherPrice10";
             this.lblOtherPrice10.Size = new System.Drawing.Size(44, 20);
-            this.lblOtherPrice10.TabIndex = 350;
+            this.lblOtherPrice10.TabIndex = 400;
             // 
             // lblOtherPrice9
             // 
             this.lblOtherPrice9.Location = new System.Drawing.Point(480, 209);
             this.lblOtherPrice9.Name = "lblOtherPrice9";
             this.lblOtherPrice9.Size = new System.Drawing.Size(44, 20);
-            this.lblOtherPrice9.TabIndex = 349;
+            this.lblOtherPrice9.TabIndex = 395;
             // 
             // lblOtherCost10
             // 
@@ -3060,14 +3156,14 @@ namespace Materials_List_Estimation
             this.lblOtherQty10.Location = new System.Drawing.Point(413, 230);
             this.lblOtherQty10.Name = "lblOtherQty10";
             this.lblOtherQty10.Size = new System.Drawing.Size(41, 20);
-            this.lblOtherQty10.TabIndex = 342;
+            this.lblOtherQty10.TabIndex = 399;
             // 
             // lblOtherQty9
             // 
             this.lblOtherQty9.Location = new System.Drawing.Point(413, 209);
             this.lblOtherQty9.Name = "lblOtherQty9";
             this.lblOtherQty9.Size = new System.Drawing.Size(41, 20);
-            this.lblOtherQty9.TabIndex = 341;
+            this.lblOtherQty9.TabIndex = 394;
             // 
             // label114
             // 
@@ -3155,28 +3251,28 @@ namespace Materials_List_Estimation
             this.lblOtherQty8.Location = new System.Drawing.Point(413, 189);
             this.lblOtherQty8.Name = "lblOtherQty8";
             this.lblOtherQty8.Size = new System.Drawing.Size(41, 20);
-            this.lblOtherQty8.TabIndex = 315;
+            this.lblOtherQty8.TabIndex = 389;
             // 
             // lblOtherQty7
             // 
             this.lblOtherQty7.Location = new System.Drawing.Point(413, 168);
             this.lblOtherQty7.Name = "lblOtherQty7";
             this.lblOtherQty7.Size = new System.Drawing.Size(41, 20);
-            this.lblOtherQty7.TabIndex = 314;
+            this.lblOtherQty7.TabIndex = 384;
             // 
             // lblOtherQty6
             // 
             this.lblOtherQty6.Location = new System.Drawing.Point(413, 147);
             this.lblOtherQty6.Name = "lblOtherQty6";
             this.lblOtherQty6.Size = new System.Drawing.Size(41, 20);
-            this.lblOtherQty6.TabIndex = 313;
+            this.lblOtherQty6.TabIndex = 379;
             // 
             // lblOtherQty5
             // 
             this.lblOtherQty5.Location = new System.Drawing.Point(413, 126);
             this.lblOtherQty5.Name = "lblOtherQty5";
             this.lblOtherQty5.Size = new System.Drawing.Size(41, 20);
-            this.lblOtherQty5.TabIndex = 312;
+            this.lblOtherQty5.TabIndex = 374;
             // 
             // label230
             // 
@@ -3296,28 +3392,28 @@ namespace Materials_List_Estimation
             this.lblOtherQty4.Location = new System.Drawing.Point(413, 105);
             this.lblOtherQty4.Name = "lblOtherQty4";
             this.lblOtherQty4.Size = new System.Drawing.Size(41, 20);
-            this.lblOtherQty4.TabIndex = 286;
+            this.lblOtherQty4.TabIndex = 369;
             // 
             // lblOtherQty3
             // 
             this.lblOtherQty3.Location = new System.Drawing.Point(413, 84);
             this.lblOtherQty3.Name = "lblOtherQty3";
             this.lblOtherQty3.Size = new System.Drawing.Size(41, 20);
-            this.lblOtherQty3.TabIndex = 285;
+            this.lblOtherQty3.TabIndex = 364;
             // 
             // lblOtherQty2
             // 
             this.lblOtherQty2.Location = new System.Drawing.Point(413, 63);
             this.lblOtherQty2.Name = "lblOtherQty2";
             this.lblOtherQty2.Size = new System.Drawing.Size(41, 20);
-            this.lblOtherQty2.TabIndex = 284;
+            this.lblOtherQty2.TabIndex = 359;
             // 
             // lblOtherQty1
             // 
             this.lblOtherQty1.Location = new System.Drawing.Point(413, 42);
             this.lblOtherQty1.Name = "lblOtherQty1";
             this.lblOtherQty1.Size = new System.Drawing.Size(41, 20);
-            this.lblOtherQty1.TabIndex = 283;
+            this.lblOtherQty1.TabIndex = 354;
             // 
             // label255
             // 
@@ -3394,9 +3490,9 @@ namespace Materials_List_Estimation
             this.groupBoxGeneral.Controls.Add(this.label4);
             this.groupBoxGeneral.Controls.Add(this.textBox3);
             this.groupBoxGeneral.Controls.Add(this.label3);
-            this.groupBoxGeneral.Controls.Add(this.textBox2);
+            this.groupBoxGeneral.Controls.Add(this.txtProjectAddress);
             this.groupBoxGeneral.Controls.Add(this.label2);
-            this.groupBoxGeneral.Controls.Add(this.textBox1);
+            this.groupBoxGeneral.Controls.Add(this.txtProjectManager);
             this.groupBoxGeneral.Controls.Add(this.label1);
             this.groupBoxGeneral.Controls.Add(this.txtProjectName);
             this.groupBoxGeneral.Location = new System.Drawing.Point(170, 68);
@@ -3502,12 +3598,12 @@ namespace Materials_List_Estimation
             this.label3.TabIndex = 3;
             this.label3.Text = "Address";
             // 
-            // textBox2
+            // txtProjectAddress
             // 
-            this.textBox2.Location = new System.Drawing.Point(108, 88);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(471, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtProjectAddress.Location = new System.Drawing.Point(108, 88);
+            this.txtProjectAddress.Name = "txtProjectAddress";
+            this.txtProjectAddress.Size = new System.Drawing.Size(471, 20);
+            this.txtProjectAddress.TabIndex = 4;
             // 
             // label2
             // 
@@ -3517,12 +3613,12 @@ namespace Materials_List_Estimation
             this.label2.TabIndex = 1;
             this.label2.Text = "Project Manager";
             // 
-            // textBox1
+            // txtProjectManager
             // 
-            this.textBox1.Location = new System.Drawing.Point(108, 62);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(471, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtProjectManager.Location = new System.Drawing.Point(108, 62);
+            this.txtProjectManager.Name = "txtProjectManager";
+            this.txtProjectManager.Size = new System.Drawing.Size(471, 20);
+            this.txtProjectManager.TabIndex = 2;
             // 
             // label1
             // 
@@ -3557,101 +3653,6 @@ namespace Materials_List_Estimation
             this.lblEstimateTotal.TabIndex = 14;
             this.lblEstimateTotal.Text = "0.00";
             this.lblEstimateTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblOtherTotal
-            // 
-            this.lblOtherTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblOtherTotal.Location = new System.Drawing.Point(478, 287);
-            this.lblOtherTotal.Name = "lblOtherTotal";
-            this.lblOtherTotal.Size = new System.Drawing.Size(88, 23);
-            this.lblOtherTotal.TabIndex = 390;
-            this.lblOtherTotal.Text = "0.00";
-            this.lblOtherTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label8
-            // 
-            this.label8.Location = new System.Drawing.Point(380, 287);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 23);
-            this.label8.TabIndex = 389;
-            this.label8.Text = "Page Total:          $";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblRoofTotal
-            // 
-            this.lblRoofTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblRoofTotal.Location = new System.Drawing.Point(478, 287);
-            this.lblRoofTotal.Name = "lblRoofTotal";
-            this.lblRoofTotal.Size = new System.Drawing.Size(88, 23);
-            this.lblRoofTotal.TabIndex = 392;
-            this.lblRoofTotal.Text = "0.00";
-            this.lblRoofTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label9
-            // 
-            this.label9.Location = new System.Drawing.Point(380, 287);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 23);
-            this.label9.TabIndex = 391;
-            this.label9.Text = "Page Total:          $";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblOpeningsTotal
-            // 
-            this.lblOpeningsTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblOpeningsTotal.Location = new System.Drawing.Point(478, 287);
-            this.lblOpeningsTotal.Name = "lblOpeningsTotal";
-            this.lblOpeningsTotal.Size = new System.Drawing.Size(88, 23);
-            this.lblOpeningsTotal.TabIndex = 392;
-            this.lblOpeningsTotal.Text = "0.00";
-            this.lblOpeningsTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label11
-            // 
-            this.label11.Location = new System.Drawing.Point(380, 287);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(100, 23);
-            this.label11.TabIndex = 391;
-            this.label11.Text = "Page Total:          $";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblWallsTotal
-            // 
-            this.lblWallsTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblWallsTotal.Location = new System.Drawing.Point(478, 287);
-            this.lblWallsTotal.Name = "lblWallsTotal";
-            this.lblWallsTotal.Size = new System.Drawing.Size(88, 23);
-            this.lblWallsTotal.TabIndex = 392;
-            this.lblWallsTotal.Text = "0.00";
-            this.lblWallsTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label12
-            // 
-            this.label12.Location = new System.Drawing.Point(380, 287);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(100, 23);
-            this.label12.TabIndex = 391;
-            this.label12.Text = "Page Total:          $";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblFlooringTotal
-            // 
-            this.lblFlooringTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblFlooringTotal.Location = new System.Drawing.Point(478, 287);
-            this.lblFlooringTotal.Name = "lblFlooringTotal";
-            this.lblFlooringTotal.Size = new System.Drawing.Size(88, 23);
-            this.lblFlooringTotal.TabIndex = 392;
-            this.lblFlooringTotal.Text = "0.00";
-            this.lblFlooringTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label13
-            // 
-            this.label13.Location = new System.Drawing.Point(380, 287);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(100, 23);
-            this.label13.TabIndex = 391;
-            this.label13.Text = "Page Total:          $";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // mainForm
             // 
@@ -3720,13 +3721,13 @@ namespace Materials_List_Estimation
         private System.Windows.Forms.TextBox txtProjectName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtProjectManager;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtProjectAddress;
         private System.Windows.Forms.Label lblWallsCost11;
         private System.Windows.Forms.Label lblWallsCost10;
         private System.Windows.Forms.Label lblWallsCost9;

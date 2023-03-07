@@ -1160,9 +1160,24 @@ namespace Materials_List_Estimation
                 string fullPath = folderRoot + fileDate + "_" + fileName + fileType;
                 string csvOutput = buildTheOutput();
                 string[] stringArray = new string[] { csvOutput };
-                File.WriteAllLines(fullPath, stringArray);
-                string readText = File.ReadAllText(fullPath);
-                Console.WriteLine(readText);
+                try
+                {
+                    File.WriteAllLines(fullPath, stringArray);
+                    // Do not initialize this variable here.
+                    string readText = File.ReadAllText(fullPath);
+                    string message = "Export successful\n\n" + fullPath;
+                    string title = "Estimate Exported";
+                    MessageBox.Show(message, title);
+                }
+                catch
+                {
+
+                    string message = "Exporting appears to be unavailable.";
+                    string title = "Export Failure";
+                    MessageBox.Show(message, title);
+                }
+                // Error: Use of unassigned local variable 'n'.
+                //Console.WriteLine(readText);
                 //Console.WriteLine(today);
             }
         }

@@ -21,13 +21,14 @@ namespace Materials_List_Estimation
         public mainForm()
         {
             InitializeComponent();
-
         }
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //Setting the size of the Group Boxes for all of the estimating sections
+            //all are basically closed until they are selected at which point the open
+            //tabs are closed and the one you select is expanded to a useable size. 
             groupBoxGeneral.Size = new Size(600, 320);
             groupBoxFlooring.Size = new Size(0, 0);
             groupBoxWalls.Size = new Size(0, 0);
@@ -42,15 +43,18 @@ namespace Materials_List_Estimation
             groupBoxRoof.Location = new Point(170, 68);
             groupBoxOtherItems.Location = new Point(170, 68);
 
+            //Defaulting the "General" item in then listCategory that 
             listCategory.SelectedItem = "General";
 
         }
 
+        //Close the program when requested
         private void exitBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //Once the item is selected, it expand the group boxes and closes the others. 
         private void listCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             String text = listCategory.SelectedItems[0].ToString();
@@ -116,6 +120,7 @@ namespace Materials_List_Estimation
             }
         }
 
+        //These following checkboxes add or remove the options for estimating groups
         private void flooringBtn_CheckedChanged(object sender, EventArgs e)
         {
             if (flooringBtn.Checked == true)
@@ -206,6 +211,7 @@ namespace Materials_List_Estimation
             updateBtn_Click(null, null);
         }
 
+        //Update button to calculate all of the estimates and figures.
         public void updateBtn_Click(object sender, EventArgs e)
         {
             decimal decimal1, decimal2, costDecimal;
@@ -1060,6 +1066,7 @@ namespace Materials_List_Estimation
             }
         }
 
+        //Resets the colors of all of the fields that changed color due to being an error.
         private void resetColors()
         {
 
@@ -1140,12 +1147,14 @@ namespace Materials_List_Estimation
 
         }
 
+        //Button to trigger the export button
         public void exportBtn_Click(object sender, EventArgs e)
         {
             //printThisScreen();
             saveThisInfo();
         }
 
+        //Export section
         public void saveThisInfo()
         {
 
@@ -1182,6 +1191,7 @@ namespace Materials_List_Estimation
             }
         }
 
+        //Creating the data that will be a part of the export file
         public string buildTheOutput()
         {
             string mainString;
@@ -1211,6 +1221,7 @@ namespace Materials_List_Estimation
             return mainString;
         }
 
+        //Adding the General info to the export file
         public string generalInfoOutput()
         {
             string temp;
@@ -1218,6 +1229,7 @@ namespace Materials_List_Estimation
             return temp;
         }
 
+        //Adding the Flooring info to the export file
         public string generalFlooringOutput(string temp)
         {
             temp += "\n\n";
@@ -1229,6 +1241,8 @@ namespace Materials_List_Estimation
             temp += ",,,,,,,Sub Total," + lblFlooringTotal.Text;
             return temp;
         }
+
+        //Adding the Walls info to the export file
         public string generalWallsOutput(string temp)
         {
             temp += "\n\n";
@@ -1247,6 +1261,8 @@ namespace Materials_List_Estimation
             temp += ",,,,,,,Sub Total," + lblWallsTotal.Text;
             return temp;
         }
+
+        //Adding the Openings info to the export file
         public string generalOpeningsOutput(string temp)
         {
             temp += "\n\n";
@@ -1256,6 +1272,8 @@ namespace Materials_List_Estimation
             temp += ",,,,,,,Sub Total," + lblOpeningsTotal.Text;
             return temp;
         }
+
+        //Adding the Roof info to the export file
         public string generalRoofOutput(string temp)
         {
             temp += "\n\n";
@@ -1271,6 +1289,8 @@ namespace Materials_List_Estimation
             temp += ",,,,,,,Sub Total," + lblRoofTotal.Text;
             return temp;
         }
+
+        //Adding the Other Items info to the export file
         public string generalOtherItemsOutput(string temp)
         {
             temp += "\n\n";
@@ -1289,9 +1309,9 @@ namespace Materials_List_Estimation
             return temp;
         }
 
+        //Clear all button to start a new estimate
         public void clearAll()
         {
-
             listCategory.SelectedItem = "General";
             flooringBtn.Checked = false;
             wallsBtn.Checked = false;
@@ -1400,7 +1420,7 @@ namespace Materials_List_Estimation
 
 
 
-
+        //Future use
         public void printThisScreen()
         {
             PrintDocument printDocument1 = new PrintDocument();
@@ -1409,6 +1429,7 @@ namespace Materials_List_Estimation
             printDocument1.Print();
         }
 
+        //Future Use
         private void CaptureScreen()
         {
             Graphics myGraphics = this.CreateGraphics();
@@ -1418,11 +1439,13 @@ namespace Materials_List_Estimation
             memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, s);
         }
 
+        //Future Use
         private void printDocument1_PrintPage(Object sender, PrintPageEventArgs e)
         {
             e.Graphics.DrawImage(memoryImage, 0, 0);
         }
 
+        //Triggers the New Estimate Commands
         private void newBtn_Click(object sender, EventArgs e)
         {
             clearAll();

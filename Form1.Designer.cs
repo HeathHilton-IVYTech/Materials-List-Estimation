@@ -3572,7 +3572,7 @@ namespace Materials_List_Estimation
             "WY"});
             this.listBox1.Location = new System.Drawing.Point(332, 117);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(46, 17);
+            this.listBox1.Size = new System.Drawing.Size(48, 30);
             this.listBox1.TabIndex = 11;
             // 
             // label4

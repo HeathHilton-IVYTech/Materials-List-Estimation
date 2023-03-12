@@ -1055,7 +1055,7 @@ namespace Materials_List_Estimation
                 }
                 else
                 {
-                    otherItemsTotal = decimal.Parse(lblOtherCost1.Text) + decimal.Parse(lblOpeningsCost2.Text) + decimal.Parse(lblOtherCost3.Text) + decimal.Parse(lblOtherCost4.Text) + decimal.Parse(lblOtherCost5.Text) + decimal.Parse(lblOtherCost6.Text) + decimal.Parse(lblOtherCost7.Text) + decimal.Parse(lblOtherCost8.Text) + decimal.Parse(lblOtherCost9.Text) + decimal.Parse(lblOtherCost10.Text);
+                    otherItemsTotal = decimal.Parse(lblOtherCost1.Text) + decimal.Parse(lblOtherCost2.Text) + decimal.Parse(lblOtherCost3.Text) + decimal.Parse(lblOtherCost4.Text) + decimal.Parse(lblOtherCost5.Text) + decimal.Parse(lblOtherCost6.Text) + decimal.Parse(lblOtherCost7.Text) + decimal.Parse(lblOtherCost8.Text) + decimal.Parse(lblOtherCost9.Text) + decimal.Parse(lblOtherCost10.Text);
                     grandTotal = grandTotal + otherItemsTotal;
                     lblOtherTotal.Text = otherItemsTotal.ToString();
                 }
